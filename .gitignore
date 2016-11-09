@@ -1,0 +1,5 @@
+/storage
+/wsusoffline
+/venv
+*.pyc
+/.idea
