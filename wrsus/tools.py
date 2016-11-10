@@ -5,7 +5,7 @@ import tqdm
 import requests
 
 
-def fetch(url, target, force=False):
+def fetch(url, target, force=False, description=None):
     target = 'storage/' + target
     if not force and os.path.isfile(target):
         return target
@@ -20,7 +20,8 @@ def fetch(url, target, force=False):
     chunk_size = 1024
     filesize = int(r.headers['content-length'])
     with open(target, 'wb') as f:
-        for chunk in tqdm.tqdm(r.iter_content(chunk_size=chunk_size), total=filesize / chunk_size, unit='kB'):
+        for chunk in tqdm.tqdm(r.iter_content(chunk_size=chunk_size), total=filesize / chunk_size, unit='kB',
+                               desc=description):
             if chunk:  # filter out keep-alive new chunks
                 f.write(chunk)
     return target

@@ -36,6 +36,9 @@ class UpdateClassification(Model):
 
 
 class Update(Model):
+    kbid = IntegerField(null=True)
+    name = CharField(null=True)
+
     guid = CharField(max_length=32, index=True)
     revision = CharField(max_length=32)
     revision_number = IntegerField()
