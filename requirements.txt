@@ -1,0 +1,6 @@
+argcomplete==1.6.0
+arghandler==1.2.0
+peewee==2.8.5
+requests==2.11.1
+tqdm==4.9.0
+urlparse3==1.0.10
